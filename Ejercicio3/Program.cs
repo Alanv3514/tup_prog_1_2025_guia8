@@ -16,11 +16,12 @@
 
         static void MostrarPantallaSolicitarAlumnos()
         {
-            for (int orden = 0; orden < 3; orden++)
+            string nombre = "";
+            for (orden = 0; orden < 3; orden++)
             {
                 Console.Clear();
                 Console.WriteLine($"Ingrese Nombre de Alumno {orden+1}\n");
-                string nombre = Convert.ToString(Console.ReadLine());
+                nombre = Convert.ToString(Console.ReadLine());
 
                 Console.WriteLine($"Ingrese Libreta de Alumno {orden+1}\n");
                 int libreta = Convert.ToInt32(Console.ReadLine());
@@ -51,47 +52,40 @@
         static void MostrarPantallaMostrarListaOrdenada()
         {
             Console.Clear();
-            if (numeroLibreta1 > numeroLibreta0)
+            if (numeroLibreta0 <= numeroLibreta1 && numeroLibreta0 <= numeroLibreta2)
             {
-                if (numeroLibreta2 > numeroLibreta0)
+                if (numeroLibreta1 <= numeroLibreta2)
+                {
+                    Console.WriteLine($"El orden es: \n{nombre0}:{numeroLibreta0}\n{nombre1}:{numeroLibreta1}\n{nombre2}:{numeroLibreta2}\n");
+                }
+                else
+                {
+                    Console.WriteLine($"El orden es: \n{nombre0}:{numeroLibreta0}\n{nombre2}:{numeroLibreta2}\n{nombre1}:{numeroLibreta1}\n");
+                }
+            }
+            else if (numeroLibreta1 <= numeroLibreta0 && numeroLibreta1 <= numeroLibreta2)
+            {
+                if (numeroLibreta0 <= numeroLibreta2)
+                {
+                    Console.WriteLine($"El orden es: \n{nombre1}:{numeroLibreta1}\n{nombre0}:{numeroLibreta0}\n{nombre2}:{numeroLibreta2}\n");
+                }
+                else
+                {
+                    Console.WriteLine($"El orden es: \n{nombre1}:{numeroLibreta1}\n{nombre2}:{numeroLibreta2}\n{nombre0}:{numeroLibreta0}\n");
+                }
+            }
+            else
+            {
+                if (numeroLibreta0 <= numeroLibreta1)
                 {
                     Console.WriteLine($"El orden es: \n{nombre2}:{numeroLibreta2}\n{nombre0}:{numeroLibreta0}\n{nombre1}:{numeroLibreta1}\n");
                 }
                 else
                 {
-                    if (numeroLibreta2 > numeroLibreta1)
-                    {
-
-                        Console.WriteLine($"El orden es: \n{nombre1}:{numeroLibreta1}\n{nombre2}:{numeroLibreta2}\n{nombre0}:{numeroLibreta0}\n");
-                    }
-                    else
-                    {
-
-                        Console.WriteLine($"El orden es: \n{nombre2}:{numeroLibreta2}\n{nombre1}:{numeroLibreta1}\n{nombre0}:{numeroLibreta0}\n");
-                    }
+                    Console.WriteLine($"El orden es: \n{nombre2}:{numeroLibreta2}\n{nombre1}:{numeroLibreta1}\n{nombre0}:{numeroLibreta0}\n");
                 }
             }
-            else
-            {
-                if(numeroLibreta2 > numeroLibreta1)
-                {
-                    Console.WriteLine($"El orden es: \n{nombre0}:{numeroLibreta0}\n{nombre1}:{numeroLibreta1}\n{nombre2}:{numeroLibreta2}\n");
 
-                }
-                else
-                {
-                    if (numeroLibreta2 > numeroLibreta0)
-                    {
-                        Console.WriteLine($"El orden es: \n{nombre0}:{numeroLibreta0}\n{nombre2}:{numeroLibreta2}\n{nombre1}:{numeroLibreta1}\n");
-
-                    }
-                    else
-                    {
-
-                        Console.WriteLine($"El orden es: \n{nombre2}:{numeroLibreta2}\n{nombre0}:{numeroLibreta0}\n{nombre1}:{numeroLibreta1}\n");
-                    }
-                }
-            }
         }
         static void MostrarPantallaSolicitarOpcionMenu()
         {
